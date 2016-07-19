@@ -5,6 +5,9 @@ It can:
 - Nested referencing, as in `data-template-part="media.image.small"`.
 - Basic loops of arrays of objects.
 
+## Install
+`npm install microtpl``
+
 ## Insert something
 ``` HTML
 <h1 data-template-part="title"></h1>

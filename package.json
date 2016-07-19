@@ -1,0 +1,22 @@
+{
+  "name": "microtpl",
+  "version": "1.0.0",
+  "description": "A small lib for injecting a JS object into a block of HTML without any data changes",
+  "main": "micro.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nosajj/micro-templating.git"
+  },
+  "author": "Jason Howmans <jason@nosaj.io> (http://nosaj.io)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nosajj/micro-templating/issues"
+  },
+  "homepage": "https://github.com/nosajj/micro-templating#readme"
+}

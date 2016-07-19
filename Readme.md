@@ -10,7 +10,7 @@ It can:
 <h1 data-template-part="title"></h1>
 ```
 
-## Insert Attribute
+## Loop over Array
 ### JS
 ```JS
 var data = {
@@ -30,4 +30,11 @@ micro.inject($el, data);
     <span data-template-part="title"></span>
   </li>
 </ul>
+```
+
+## Inject Attribute
+``` HTML
+<img src=""
+     data-template-part="image.src"
+     data-template-attr="src">
 ```

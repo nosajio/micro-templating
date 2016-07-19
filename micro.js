@@ -25,9 +25,9 @@
 (function($) {
   'use strict';
 
-  this.micro = uiMutators();
+  this.micro = micro();
 
-  function uiMutators() {
+  function micro() {
     return {
       inject: injectTemplateContent,
     };
@@ -88,7 +88,6 @@
           var $scopedContent = injectTemplateContent($found.clone(), it);
           loopEls.push($scopedContent);
         });
-        console.log(loopEls);
         if (loopEls.length) {
           $($template)
             .find('[data-repeat*="'+ prop +'"]')

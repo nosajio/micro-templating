@@ -1,0 +1,35 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+
+    <div class="app"></div>
+
+    <script type="text/html" data-is-template>
+      <span class="hello"
+            data-template-class="myClass"
+            data-template-part="name"></span>
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script src="../micro.js"></script>
+    <script>
+      var data = {
+        myClass: 'world',
+        name: 'micro',
+      };
+
+      $(function () {
+        var $tpl = $($('[data-is-template]').html());
+        var $injected = micro.inject($tpl, data);
+        $('.app').html($injected);
+      });
+    </script>
+  </body>
+</html>

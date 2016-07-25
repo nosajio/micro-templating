@@ -52,6 +52,7 @@
       });
       var repeatableProperties = Object.keys(repeatableContent);
       var flatProperties = Object.keys(flatContent);
+      flatProperties.forEach(addClassNames);
       flatProperties.forEach(replaceInTemplate);
       repeatableProperties.forEach(repeatInTemplate);
 
@@ -78,6 +79,13 @@
         }
       }
 
+      function addClassNames(prop) {
+        var contentItem = flatContent[prop];
+        var $found = findAttr($($template), 'data-template-class', prop);
+        if (! $found.length) return /* no el's found, move onto the next prop */;
+        $found.addClass(contentItem);
+      }
+
       function repeatInTemplate(prop) {
         var contentArray = repeatableContent[prop];
         var $found = $($template).find('[data-repeat*="'+ prop +'"]');
@@ -97,15 +105,31 @@
 
       function replaceInTemplate(prop) {
         var contentItem = flatContent[prop];
-        var $found = $($template).find('[data-template-part*="'+ prop +'"]');
-        var attr = $found.attr('data-template-attr');
+        var $found = findAttr($($template), 'data-template-part', prop);
         if (! $found.length) return /* no el's found, move onto the next prop */;
+        var attr = $found.attr('data-template-attr');
         if (attr) {
           $found.attr(attr, contentItem);
         } else {
           $found.html(contentItem);
         }
       }
+    }
+
+    function findAttr($el, attr, prop) {
+      var found;
+      if (! prop) {
+        found = $el.find('['+ attr +']');
+        if (! found.length) {
+          found = ($el.attr(attr)) ? $el : undefined;
+        }
+      } else {
+        found = $el.find('['+ attr +'*='+ prop +']');
+        if (! found.length) {
+          found = ($el.attr(attr) === prop) ? $el : undefined;
+        }
+      }
+      return found || [];
     }
   }
 }.call(window, jQuery));

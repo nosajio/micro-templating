@@ -1,6 +1,6 @@
 {
   "name": "microtpl",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A small lib for injecting a JS object into a block of HTML without any data changes",
   "main": "micro.js",
   "directories": {

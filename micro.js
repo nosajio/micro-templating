@@ -83,6 +83,9 @@
         var contentItem = flatContent[prop];
         var $found = findAttr($($template), 'data-template-class', prop);
         if (! $found.length) return /* no el's found, move onto the next prop */;
+        if ($.type(contentItem) === 'array') {
+          contentItem = contentItem.join(' ');
+        }
         $found.addClass(contentItem);
       }
 

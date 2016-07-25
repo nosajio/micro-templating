@@ -124,7 +124,7 @@
           found = ($el.attr(attr)) ? $el : undefined;
         }
       } else {
-        found = $el.find('['+ attr +'*='+ prop +']');
+        found = $el.find('['+ attr +'*="'+ prop +'"]');
         if (! found.length) {
           found = ($el.attr(attr) === prop) ? $el : undefined;
         }
